@@ -12,7 +12,7 @@ import re
 query_txt = input('크롤링할 영화의 키워드는 무엇입니까? : ')
 query_url = 'https://movie.naver.com'
 
-cnt = int(input('2.크롤링 할 리뷰건수는 몇건입니까?: '))
+cnt = int(input('크롤링 할 리뷰건수는 몇건입니까?: '))
 page_cnt = math.ceil(cnt / 10)
 
 f_dir = input('파일 경로와 이름을 지정하세요.(예:c:\py_temp\data): ')
