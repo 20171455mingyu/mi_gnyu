@@ -9,11 +9,6 @@ import random
 import os
 import re
 
-print("-" *80)
-print("네이버 영화 리뷰 정보 수집하기")
-print("=" *80)
-print("\n")
-
 query_txt = input('크롤링할 영화의 키워드는 무엇입니까? : ')
 query_url = 'https://movie.naver.com'
 
@@ -21,7 +16,6 @@ cnt = int(input('2.크롤링 할 리뷰건수는 몇건입니까?: '))
 page_cnt = math.ceil(cnt / 10)
 
 f_dir = input('파일 경로와 이름을 지정하세요.(예:c:\py_temp\data): ')
-print("-" *80)
 
 # 파일 위치, 이름
 now = time.localtime()
@@ -83,12 +77,10 @@ if cnt > search_cnt :
     cnt = search_cnt
 
 print("전체 검색 결과 건수 :",search_cnt,"건")
-print("실제 최종 출력 건수",cnt)
-
+print("출력 건수",cnt)
+print("---------------------------------------------------------------------------------")
 print("\n")
 page_cnt = math.ceil(cnt / 10)
-print("크롤링 할 총 페이지 번호: ",page_cnt)
-print("=" *80)
 
 score2=[]
 review2=[]
