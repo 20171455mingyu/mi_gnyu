@@ -78,7 +78,7 @@ if cnt > search_cnt :
 
 print("전체 검색 결과 건수 :",search_cnt,"건")
 print("출력 건수",cnt)
-print("---------------------------------------------------------------------------------")
+print("--------------------------------------------------------------------------------")
 print("\n")
 page_cnt = math.ceil(cnt / 10)
 
@@ -109,6 +109,7 @@ while ( click_count <= page_cnt )  :
                 f = open(ff_name, 'a', encoding = 'UTF-8')
             
                 print("\n")
+                print("================================================================================")
                 print("%s 번째 댓글" %count)
                 score = li.find('div', class_='star_score').find('em').get_text()
                 print("1.별점:","*"*int(score),": ", score)
