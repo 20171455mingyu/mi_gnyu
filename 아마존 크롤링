@@ -14,11 +14,9 @@ import os
 import urllib.request
 import urllib
 
-
-print("=" *80)
-print("아마존 닷컴의 분야별 정보 추출하기")
-print("=" *80)
-
+print("\n")
+print("아마존 크롤링")
+print("\n")
 query_txt='아마존닷컴'
 query_url='https://www.amazon.com/bestsellers?ld=NSGoogle'
 
@@ -38,9 +36,9 @@ sec = input('''
     37.Sports & Outdoors               38.Sports Collectibles        39.Tools & Home Improvement   
     40.Toys & Games                    41.Video Games
 
-    1.자료를 수집할 번호를 선택하세요: ''')
+1.자료를 수집할 번호를 선택하세요: ''')
 
-cnt = int(input('2.해당 분야에서 크롤링 할 건수는 몇건입니까?(1-100 건 사이 입력): '))
+cnt = int(input('2.해당 분야에서 크롤링 할 건수는 몇건입니까?(100건 이하): '))
 
 f_dir = input("3.파일 경로와 이름을 지정하세요.(예:C:\py_temp\data):")
 print("\n")
@@ -585,7 +583,7 @@ elif cnt >= 51 :
              if count == cnt :
                 break
 else :
-      print(" 검색 건수는 1건 - 최대 100 건까지만 가능합니다")
+      print(" 검색은 100건 이하만 가능합니다.")
   
               
 amazon_best_seller = pd.DataFrame()
