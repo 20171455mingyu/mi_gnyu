@@ -14,9 +14,11 @@ import os
 import urllib.request
 import urllib
 
+
 print("\n")
-print("아마존 크롤링")
+print("아마존 닷컴 정보 추출하기")
 print("\n")
+
 query_txt='아마존닷컴'
 query_url='https://www.amazon.com/bestsellers?ld=NSGoogle'
 
@@ -583,7 +585,7 @@ elif cnt >= 51 :
              if count == cnt :
                 break
 else :
-      print(" 검색은 100건 이하만 가능합니다.")
+      print("검색은 100건 이하만 가능합니다.")
   
               
 amazon_best_seller = pd.DataFrame()
@@ -594,16 +596,16 @@ amazon_best_seller['상품평 갯수']=pd.Series(sat_count2)
 amazon_best_seller['상품평점']=pd.Series(score2)
 
 
-# csv 형태로 저장
+
 amazon_best_seller.to_csv(fc_name,encoding="utf-8-sig",index=True)
 
-# 엑셀 형태로 저장
+
 amazon_best_seller.to_excel(fx_name ,index=True)
 
 e_time = time.time( )
 t_time = e_time - s_time
 
-# txt 파일에 저장
+
 orig_stdout = sys.stdout
 f = open(ff_name, 'a',encoding='UTF-8')
 sys.stdout = f
