@@ -1,11 +1,11 @@
-# UCLA µ¥ÀÌÅÍ È¹µæ
+# UCLA ë°ì´í„° íšë“
 ucla = read.csv('https://stats.idre.ucla.edu/stat/data/binary.csv')
 str(ucla)
 
-# µ¥ÀÌÅÍ factorÇü º¯È¯
+# ë°ì´í„° factorí˜• ë³€í™˜
 ucla$rank = factor(ucla$rank)
 
-# ÇĞ½Àµ¥ÀÌÅÍ¿Í Å×½ºÆ®µ¥ÀÌÅÍ ºĞ¸®
+# í•™ìŠµë°ì´í„°ì™€ í…ŒìŠ¤íŠ¸ë°ì´í„° ë¶„ë¦¬
 n = nrow(ucla)
 i = 1:n
 train_list = sample(i, n * 0.6)
@@ -13,7 +13,7 @@ test_list = setdiff(i, train_list)
 ucla_train = ucla[train_list, ]
 ucla_test = ucla[test_list, ]
 
-# ÇĞ½Àµ¥ÀÌÅÍ·Î ¸ğµ¨À» ¸¸µå´Â °úÁ¤
+# í•™ìŠµë°ì´í„°ë¡œ ëª¨ë¸ì„ ë§Œë“œëŠ” ê³¼ì •
 control = trainControl(method = 'cv', number = 5)
 r = train(admit~., data = ucla_train, method = 'rpart', trControl = control)
 f50 = train(admit~., data = ucla_train, method = 'rf', ntree = 50, trControl = control)
@@ -22,10 +22,10 @@ s_Radial = train(admit~., data = ucla_train, method = 'svmRadial', trControl = c
 s_Poly =train(admit~., data = ucla_train, method = 'svmPoly', trControl = control)
 k = train(admit~., data = ucla_train, method = 'knn',, trControl = control)
 
-resamp = resamples(list(°áÁ¤Æ®¸® = r, Æ÷·¹½ºÆ®50 = f50, Æ÷·¹½ºÆ®1000 = f1000, svmRadial = s_Radial, svmPoly = s_Poly, knn = k))
+resamp = resamples(list(ê²°ì •íŠ¸ë¦¬ = r, í¬ë ˆìŠ¤íŠ¸50 = f50, í¬ë ˆìŠ¤íŠ¸1000 = f1000, svmRadial = s_Radial, svmPoly = s_Poly, knn = k))
 summary(resamp)
 
-# Å×½ºÆ®µ¥ÀÌÅÍ·Î ¿¹ÃøÇÏ°í, table ÇÔ¼ö¸¦ »ç¿ëÇÏ¿© È¥µ¿Çà·Ä Ãâ·Â
+# í…ŒìŠ¤íŠ¸ë°ì´í„°ë¡œ ì˜ˆì¸¡í•˜ê³ , table í•¨ìˆ˜ë¥¼ ì‚¬ìš©í•˜ì—¬ í˜¼ë™í–‰ë ¬ ì¶œë ¥
 table(predict(r, ucla_test), ucla_test$admit)
 table(predict(f50, ucla_test), ucla_test$admit)
 table(predict(f1000, ucla_test), ucla_test$admit)
@@ -33,7 +33,7 @@ table(predict(s_Radial, ucla_test), ucla_test$admit)
 table(predict(s_Poly, ucla_test), ucla_test$admit)
 table(predict(k, ucla_test), ucla_test$admit)
 
-# È¥µ¿ Çà·Ä·ÎºÎÅÍ Á¤È®µµ¸¦ °è»ê
+# í˜¼ë™ í–‰ë ¬ë¡œë¶€í„° ì •í™•ë„ë¥¼ ê³„ì‚°
 caret::confusionMatrix(predict(r, ucla_test), ucla_test$admit)
 caret::confusionMatrix(predict(f50, ucla_test), ucla_test$admit)
 caret::confusionMatrix(predict(f1000, ucla_test), ucla_test$admit)
