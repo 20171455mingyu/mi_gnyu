@@ -4,17 +4,17 @@ y <- c(4.56, 5.9, 6.7, 8.02, 7.7, 8.1, 6.1)
 m <- lm(y ~ x + u)
 coef(m)
 
-# ´ÙÁß ¼±Çü È¸±Í Àû¿ë
+# ë‹¤ì¤‘ ì„ í˜• íšŒê·€ ì ìš©
 s <- scatterplot3d(x, u, y, xlim = 2:7, ylim = 7:23, zlim = 0:10, pch = 20, type = 'h')
 s$plane3d(m)
 
-# µ¥ÀÌÅÍ ¿¹Ãø
+# ë°ì´í„° ì˜ˆì¸¡
 nx <- c(7.5, 5.0)
 nu <- c(15.0, 12.0)
 new_data <- data.frame(x = nx, u = nu)
 ny <- predict(m, new_data)
 ny
 
-# 3D ±×·¡ÇÁ Ãâ·Â
+# 3D ê·¸ëž˜í”„ ì¶œë ¥
 ns <- scatterplot3d(nx, nu, ny, xlim = 0:10, ylim = 7:23, zlim = 0:10, pch = 20, type = 'h')
 s$plane3d(m)
